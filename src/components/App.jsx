@@ -6,8 +6,7 @@ import { GlobalStyle } from './GlobalStyle';
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
-    number: '',
+    filter: '',
   };
 
   addContact = newContact => {
