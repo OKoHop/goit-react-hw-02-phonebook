@@ -7,9 +7,11 @@ export class App extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
   addContact = newContact => {
+    console.log(newContact);
     this.setState(prevstate => {
       return {
         contacts: [...prevstate.contacts, newContact],

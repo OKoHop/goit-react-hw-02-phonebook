@@ -6,12 +6,10 @@ import { StyledForm } from './AddContact.styled';
 
 const addContactSchema = Yup.object().shape({
   name: Yup.string()
-
     .min(3, 'Too Short!')
-
     .max(50, 'Too Long!')
-
     .required('Required'),
+  number: Yup.number().min(10, 'Too Short!').required('Required'),
 });
 
 export const AddContact = ({ onAdd }) => {
@@ -20,6 +18,7 @@ export const AddContact = ({ onAdd }) => {
       <Formik
         initialValues={{
           name: '',
+          number: '',
         }}
         onSubmit={(values, actions) => {
           onAdd({ ...values, id: nanoid() });
@@ -32,6 +31,11 @@ export const AddContact = ({ onAdd }) => {
             Name
             <Field name="name" placeholder="Enter name"></Field>
             <ErrorMessage name="name" />
+          </label>
+          <label>
+            Number
+            <Field name="number" placeholder="0631234567"></Field>
+            <ErrorMessage name="number" />
           </label>
           <button type="submit">Add contact</button>
         </StyledForm>

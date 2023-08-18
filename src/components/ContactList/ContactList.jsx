@@ -1,13 +1,16 @@
-export const ContactList = ({ title, contacts }) => {
+import { StyledLi } from './ContactList.style';
+
+export const ContactList = ({ title, contacts, number }) => {
   return (
     <>
       <h2>{title}</h2>
       <ul>
         {contacts.map(contact => {
           return (
-            <li key={contact.id}>
+            <StyledLi key={contact.id}>
               <p>{contact.name}</p>
-            </li>
+              <p>{contact.number}</p>
+            </StyledLi>
           );
         })}
       </ul>
