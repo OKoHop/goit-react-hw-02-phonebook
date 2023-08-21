@@ -1,4 +1,3 @@
-import { Filter } from 'components/FilterContacts/FilterContacts';
 import {
   StyledLi,
   StyledH2,
@@ -6,17 +5,11 @@ import {
   StyledButton,
 } from './ContactList.style';
 
-export const ContactList = ({
-  title,
-  contacts,
-  filter,
-  onChange,
-  onDelete,
-}) => {
+export const ContactList = ({ title, contacts, filter, onDelete }) => {
   return (
     <>
       <StyledH2>{title}</StyledH2>
-      <Filter value={filter} onChange={onChange} />
+
       <StyledUl>
         {contacts.map(contact => {
           return (

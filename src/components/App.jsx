@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ContactList } from './ContactList/ContactList';
 import { AddContact } from './AddContact/AddContact';
+import { Filter } from 'components/FilterContacts/FilterContacts';
 import { GlobalStyle } from './GlobalStyle';
 
 export class App extends Component {
@@ -10,7 +11,11 @@ export class App extends Component {
   };
 
   addContact = newContact => {
-    if (this.state.contacts.find(contact => contact.name === newContact.name)) {
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
       return alert(`${newContact.name} is already in contact!`);
     }
     this.setState(prevstate => {
@@ -45,11 +50,11 @@ export class App extends Component {
       <div>
         <h2>Phonebook</h2>
         <AddContact onAdd={this.addContact} />
+        <Filter value={filter} onChange={this.filterChange} />
         <ContactList
           title="Contacts"
           contacts={filtredContacts}
           filter={filter}
-          onChange={this.filterChange}
           onDelete={this.deleteContact}
         />
         <GlobalStyle />
