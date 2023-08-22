@@ -5,7 +5,7 @@ import {
   StyledButton,
 } from './ContactList.style';
 
-export const ContactList = ({ title, contacts, filter, onDelete }) => {
+export const ContactList = ({ title, contacts, onDelete }) => {
   return (
     <>
       <StyledH2>{title}</StyledH2>

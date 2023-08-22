@@ -54,7 +54,6 @@ export class App extends Component {
         <ContactList
           title="Contacts"
           contacts={filtredContacts}
-          filter={filter}
           onDelete={this.deleteContact}
         />
         <GlobalStyle />
